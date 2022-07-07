@@ -1,5 +1,6 @@
 using Infrastructure.Persistance;
 using Infrastructure.Persistance.Data;
+using Infrastructure.Persistance.DIContainer;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -10,6 +11,8 @@ var configuration = builder.Configuration;
 builder.Services.AddControllers();
 //Db Registration
 builder.Services.AddDbServices(configuration);
+//DI Container
+builder.Services.AddDIServices();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

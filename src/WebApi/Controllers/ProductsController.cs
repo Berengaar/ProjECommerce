@@ -18,9 +18,10 @@ namespace WebApi.Controllers
             _mapper = mapper;
         }
 
+        [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
-
+            return Ok();
         }
     }
 }
