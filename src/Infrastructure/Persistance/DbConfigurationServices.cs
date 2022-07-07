@@ -1,5 +1,6 @@
 ﻿using Domain.Entities.Identity;
 using Infrastructure.Persistance.Contexts;
+using Infrastructure.Persistance.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,8 @@ namespace Infrastructure.Persistance
         {
             services.AddDbContext<ProjECommerceDbContext>(options => options.UseSqlServer(configuration["SQLSERVER:ConnectionStrings"]));
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<ProjECommerceDbContext>().AddDefaultTokenProviders();
+
+            services.AddTransient<DataSeeding>();
         }
     }
 }

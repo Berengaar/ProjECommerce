@@ -13,7 +13,7 @@ namespace Domain.Entities.Identity
         public string LastName { get; set; }
         public string UserName { get; set; }
         //Nav
-        //public string CustomerId { get; set; }
-        //public Customer Customer { get; set; }
+        public string CustomerId { get; set; }
+        public Customer Customer { get; set; }
     }
 }
