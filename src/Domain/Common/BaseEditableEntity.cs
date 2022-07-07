@@ -9,5 +9,6 @@ namespace Domain.Common
     public abstract class BaseEditableEntity
     {
         public string Id { get; set; } = Guid.NewGuid().ToString();
+        //public bool IsActive { get; set; } = true;
     }
 }

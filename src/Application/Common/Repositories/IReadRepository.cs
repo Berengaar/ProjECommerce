@@ -10,7 +10,7 @@ namespace Application.Common.Repositories
 {
     public interface IReadRepository<T> : IRepository<T> where T : BaseEditableEntity
     {
-        Task<IList<T>> GetAllAsync(Expression<Func<T, bool>> condition);
+        Task<IList<T>> GetAllAsync(Expression<Func<T, bool>> condition = null);
         Task<T> GetSingleAsync(Expression<Func<T, bool>> condition, params Expression<Func<T, object>>[] includeProperties);
     }
 }
