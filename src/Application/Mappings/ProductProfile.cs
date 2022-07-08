@@ -13,10 +13,12 @@ namespace Application.Mappings
     {
         public ProductProfile()
         {
-            CreateMap<Product, ProductListDto>().ReverseMap()
-                .ForMember(dest => dest.Category.Name, opt => opt.MapFrom(src => src.Category))
-                .ForMember(dest => dest.Brand.Name, opt => opt.MapFrom(src => src.Brand))
-                .ForMember(dest => dest.Color.Name, opt => opt.MapFrom(src => src.Color));
+            CreateMap<Product, ProductListDto>()
+                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category))
+                .ForPath(s => s.Category, opt => opt.MapFrom(src => src.Category.Name))
+                .ReverseMap();
+                //.ForMember(dest => dest.Brand.Name, opt => opt.MapFrom(src => src.Brand))
+                //.ForMember(dest => dest.Color.Name, opt => opt.MapFrom(src => src.Color));
 
         }
     }

@@ -27,6 +27,7 @@ namespace Infrastructure.Persistance.Repositories
             if (entity != null)
             {
                 await Table.AddAsync(entity);
+                await SaveAsync();
                 return true;
             }
             return false;
@@ -37,6 +38,7 @@ namespace Infrastructure.Persistance.Repositories
             if (entities.Any())
             {
                 await Table.AddRangeAsync(entities);
+                await SaveAsync();
                 return true;
             }
             return false;
@@ -49,6 +51,7 @@ namespace Infrastructure.Persistance.Repositories
                 if (condition != null)
                 {
                     entity=await Table.SingleOrDefaultAsync(condition);
+                    await SaveAsync();
                 }
                 await Task.Run(() => Table.Remove(entity));
                 return true;
@@ -61,9 +64,14 @@ namespace Infrastructure.Persistance.Repositories
             if (entity!=null)
             {
                 await Task.Run(() => Table.Update(entity));
+                await SaveAsync();
                 return true;
             }
             return false;
+        }
+        public async Task<int> SaveAsync()
+        {
+            return await _context.SaveChangesAsync();
         }
     }
 }

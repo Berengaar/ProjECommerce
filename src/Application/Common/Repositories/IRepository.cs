@@ -11,5 +11,6 @@ namespace Application.Common.Repositories
     public interface IRepository<T> where T : BaseEditableEntity
     {
         DbSet<T> Table { get;}
+
     }
 }

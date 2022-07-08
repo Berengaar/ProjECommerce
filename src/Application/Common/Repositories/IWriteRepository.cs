@@ -14,5 +14,6 @@ namespace Application.Common.Repositories
         Task<bool> AddRangeAsync(IList<T> entities);
         Task<bool> UpdateAsync(T entity);
         Task<bool> RemoveAsync(T entity, Expression<Func<T, bool>> condition = null);
+        Task<int> SaveAsync();
     }
 }

@@ -35,7 +35,7 @@ namespace Application.Common.Interfaces
         IOrderWriteRepository OrderWriteRepository { get; }
         IProductWriteRepository ProductWriteRepository { get; }
 
-        Task<int> SaveChangesAsync();
+       
 
     }
 }

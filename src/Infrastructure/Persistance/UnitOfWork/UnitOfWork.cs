@@ -85,9 +85,6 @@ namespace Infrastructure.Persistance.UnitOfWork
             await _context.DisposeAsync();
         }
 
-        public async Task<int> SaveChangesAsync()
-        {
-            return await _context.SaveChangesAsync();
-        }
+       
     }
 }
